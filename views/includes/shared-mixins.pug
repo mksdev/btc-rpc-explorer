@@ -420,7 +420,7 @@ mixin confirmations(confirmations, abbreviated=true)
 
 
 mixin timestamp(timestamp, includeAgo=true, formatString, includeUtc=true)
-	- var mm = userSettings.useLocalTime === true ? moment : moment.utc
+	- var mm = moment
 	- var utcMoment = mm(new Date(parseInt(timestamp) * 1000));
 
 	- var yearStr = utcMoment.format("Y");
