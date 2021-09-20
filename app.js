@@ -77,6 +77,9 @@ const config = require("./app/config.js");
 const simpleGit = require('simple-git');
 const utils = require("./app/utils.js");
 const moment = require("moment");
+const momentLocal = (userSettings) => {
+	return userSettings.useLocalTime === true ? moment : moment.utc
+}
 const Decimal = require('decimal.js');
 const bitcoinCore = require("btc-rpc-client");
 const pug = require("pug");

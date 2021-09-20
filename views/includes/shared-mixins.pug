@@ -420,14 +420,13 @@ mixin confirmations(confirmations, abbreviated=true)
 
 
 mixin timestamp(timestamp, includeAgo=true, formatString, includeUtc=true)
-	- var mm = moment
-	- var utcMoment = mm(new Date(parseInt(timestamp) * 1000));
+	- var utcMoment = momentLocal(userSettings)(new Date(parseInt(timestamp) * 1000));
 
 	- var yearStr = utcMoment.format("Y");
-	- var nowYearStr = mm(new Date()).format("Y");
+	- var nowYearStr = momentLocal(userSettings)(new Date()).format("Y");
 
 	- var dateStr = utcMoment.format("Y-M-D");
-	- var nowDateStr = mm(new Date()).format("Y-M-D");
+	- var nowDateStr = momentLocal(userSettings)(new Date()).format("Y-M-D");
 
 	- var titleStr = `${utcMoment.format("Y-MM-DD HH:mm:ss")} `+(userSettings.useLocalTime == true ? 'local' : 'utc');
 
